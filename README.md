@@ -4,16 +4,16 @@
 
 ## 功能
 
-* 支持引用 `node_modules` 模块
-* 支持通过配置 `alias` 来避免 `../../../` 之类的模块引用
-* 通过 `babel` 支持更丰富的 `ES6` 兼容，包括 `async/await`
-* 内置 `promise` 和 `lodash`（`lodash` 按需引入相应模块，不会全部引入）
-* 使用 `scss` 编写 `.wxss` 文件，内置了一些有用的 `mixins` 和 `extends`
-* 提供 `__DEV__` 和 `process.env.NODE_ENV` 全局常量辅助开发
-* 支持自动编译为微信和支付宝小程序
-* 提供 `__WECHAT__` 和 `__ALIPAY__` 全局常量来判断是微信小程序或支付宝小程序
-* 通过命令行快速创建微信小程序页面
-* 支持在 `production` 环境下压缩代码
+- 支持引用 `node_modules` 模块
+- 支持通过配置 `alias` 来避免 `../../../` 之类的模块引用
+- 通过 `babel` 支持更丰富的 `ES6` 兼容，包括 `async/await`
+- 内置 `promise` 和 `lodash`（`lodash` 按需引入相应模块，不会全部引入）
+- 使用 `scss` 编写 `.wxss` 文件，内置了一些有用的 `mixins` 和 `extends`
+- 提供 `__DEV__` 和 `process.env.NODE_ENV` 全局常量辅助开发
+- 支持自动编译为微信和支付宝小程序
+- 提供 `__WECHAT__` 和 `__ALIPAY__` 全局常量来判断是微信小程序或支付宝小程序
+- 通过命令行快速创建微信小程序页面
+- 支持在 `production` 环境下压缩代码
 
 ## 开始使用
 
@@ -26,12 +26,12 @@
 
 ## 内置命令
 
-* `yarn start` 启动 `webpack` 开发微信小程序项目，能监听文件变化自动重新编译
-* `yarn start:alipay` 启动 `webpack` 开发支付宝小程序项目，能监听文件变化自动重新编译
-* `yarn build` 编译生成 `production` 环境的代码到 `dist/wechat` 和 `dist/alipay`
-* `yarn lint:build` 执行 `yarn build` 命令，并使用 eslint 和 stylelint 来校验代码规范
-* `yarn prettier` 执行 `prettier` 来格式化 src 目录下的代码
-* `yarn create-page` 快速创建微信小程序页面（更多 `create-page` 的用法，请查看 [create-wxapp-page](https://github.com/cantonjs/create-wxapp-page)）
+- `yarn start` 启动 `webpack` 开发微信小程序项目，能监听文件变化自动重新编译
+- `yarn start:alipay` 启动 `webpack` 开发支付宝小程序项目，能监听文件变化自动重新编译
+- `yarn build` 编译生成 `production` 环境的代码到 `dist/wechat` 和 `dist/alipay`
+- `yarn lint:build` 执行 `yarn build` 命令，并使用 eslint 和 stylelint 来校验代码规范
+- `yarn prettier` 执行 `prettier` 来格式化 src 目录下的代码
+- `yarn create-page` 快速创建微信小程序页面（更多 `create-page` 的用法，请查看 [create-wxapp-page](https://github.com/cantonjs/create-wxapp-page)）
 
 ## 兼容微信和支付宝小程序
 
@@ -50,7 +50,7 @@
 ```json5
 {
   // ...
-  "copyWebpack": ["images", "icons"]
+  copyWebpack: ["images", "icons"]
 }
 ```
 
@@ -62,10 +62,10 @@
 
 ## 相关项目
 
-* [create-wxapp-page](https://github.com/cantonjs/create-wxapp-page)
-* [react-lib-boilerplate](https://github.com/cantonjs/react-lib-boilerplate)
-* [front-end-lib-boilerplate](https://github.com/cantonjs/front-end-lib-boilerplate)
-* [node-cli-boilerplate](https://github.com/cantonjs/node-cli-boilerplate)
+- [create-wxapp-page](https://github.com/cantonjs/create-wxapp-page)
+- [react-lib-boilerplate](https://github.com/cantonjs/react-lib-boilerplate)
+- [front-end-lib-boilerplate](https://github.com/cantonjs/front-end-lib-boilerplate)
+- [node-cli-boilerplate](https://github.com/cantonjs/node-cli-boilerplate)
 
 ## License
 
