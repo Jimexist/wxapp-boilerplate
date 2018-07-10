@@ -1,18 +1,18 @@
+@import '../../styles/share.wxss';
 
-@import 'share';
+:root {
+	--r: 24px;
+}
 
 .motto {
-	@extend %center-flex;
-
+	@apply --center-flex;
 	margin-top: 200px;
 	align-items: center;
 }
 
 .face {
-	$r: 24px;
-
-	width: $r;
-	height: $r;
+	width: var(--r);
+	height: var(--r);
 	border-radius: 50%;
 	margin-right: 10px;
 }

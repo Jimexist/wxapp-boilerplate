@@ -1,18 +1,18 @@
+@import '../../styles/share.wxss';
 
-@import 'share';
+:root {
+	--r: 120rpx;
+}
 
 .container {
-	@extend %center-flex;
-
+	@apply --center-flex;
 	flex-direction: column;
 	align-items: center;
 }
 
 .avatar {
-	$r: 120rpx;
-
-	width: $r;
-	height: $r;
+	width: var(--r);
+	height: var(--r);
 	margin: 20rpx;
 	border-radius: 50%;
 }

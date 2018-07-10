@@ -76,14 +76,16 @@ export default (env = {}) => {
 					].filter(Boolean),
 				},
 				{
-					test: /\.(scss|wxss|acss)$/,
+					test: /\.(wxss|acss)$/,
 					include: /src/,
 					use: [
 						relativeFileLoader(isWechat ? 'wxss' : 'acss'),
 						{
-							loader: 'sass-loader',
+							loader: 'postcss-loader',
 							options: {
-								includePaths: [resolve('src', 'styles'), srcDir],
+								config: {
+									path: resolve('./postcss.config.js'),
+								},
 							},
 						},
 					],
