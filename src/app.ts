@@ -1,4 +1,6 @@
 import { camelCase } from "lodash";
+declare var App: ({}) => void;
+declare var wx: any;
 
 App({
   onLaunch() {

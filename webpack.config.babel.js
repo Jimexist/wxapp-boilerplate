@@ -1,10 +1,5 @@
 import { resolve } from "path";
-import {
-  DefinePlugin,
-  EnvironmentPlugin,
-  IgnorePlugin,
-  optimize
-} from "webpack";
+import { DefinePlugin, EnvironmentPlugin, optimize } from "webpack";
 import WXAppWebpackPlugin, { Targets } from "wxapp-webpack-plugin";
 import StylelintPlugin from "stylelint-webpack-plugin";
 import MinifyPlugin from "babel-minify-webpack-plugin";
@@ -43,13 +38,7 @@ export default (env = {}) => {
 
   return {
     entry: {
-      app: [
-        // add promise polyfill into wechat mini program
-        isWechat &&
-          `es6-promise/dist/es6-promise.auto${isDev ? ".min" : ""}.js`,
-
-        "./src/app.js"
-      ].filter(Boolean)
+      app: ["./src/app"]
     },
     output: {
       filename: "[name].js",
@@ -59,6 +48,12 @@ export default (env = {}) => {
     target: Targets[target],
     module: {
       rules: [
+        {
+          test: /\.ts$/,
+          include: /src/,
+          exclude: /node_modules/,
+          use: ["ts-loader"]
+        },
         {
           test: /\.js$/,
           include: /src/,
@@ -124,14 +119,14 @@ export default (env = {}) => {
         clear: !isDev
       }),
       new optimize.ModuleConcatenationPlugin(),
-      new IgnorePlugin(/vertx/),
       shouldLint && new StylelintPlugin(),
       min && new MinifyPlugin(),
       new CopyPlugin(copyPatterns, { context: srcDir })
     ].filter(Boolean),
     devtool: isDev ? "source-map" : false,
     resolve: {
-      modules: [resolve(__dirname, "src"), "node_modules"]
+      modules: [resolve(__dirname, "src"), "node_modules"],
+      extensions: [".ts", ".json", ".js"]
     },
     watchOptions: {
       ignored: /dist|manifest/,

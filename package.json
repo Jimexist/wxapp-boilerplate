@@ -10,8 +10,8 @@
     "deprecate:watch": "echo \"'watch' is deprecated, please use 'start' instead\"",
     "watch": "run-s deprecate:watch start",
     "watch:alipay": "run-s deprecate:watch start:alipay",
-    "prestart": "rimraf dist",
-    "prebuild": "rimraf dist",
+    "prestart": "npm run clean",
+    "prebuild": "npm run clean",
     "build:wechat": "cross-env NODE_ENV=production webpack --env.target=Wechat --env.min",
     "build:alipay": "cross-env NODE_ENV=production webpack --env.target=Alipay --env.min",
     "build": "run-s build:*",
@@ -20,7 +20,8 @@
     "prettier": "prettier-eslint --write \"+(src|test)/**/*.js\"",
     "create-page": "create-wxapp-page --type=page --dir=src --indent=tab --style=scss",
     "create-component": "create-wxapp-page --type=component --dir=src --indent=tab --style=scss",
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf dist"
   },
   "main": "dist/wechat/app.js",
   "author": "cap32",
@@ -29,6 +30,7 @@
     "node": ">=4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.111",
     "babel-core": "^6.24.0",
     "babel-jest": "21.x",
     "babel-loader": "^7.1.1",
@@ -57,21 +59,19 @@
     "node-sass": "^4.9.2",
     "npm-run-all": "^4.1.1",
     "prettier-eslint-cli": "^4.7.0",
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0",
     "stylelint-scss": "^1.4.4",
     "stylelint-webpack-plugin": "^0.9.0",
-    "ts-loader": "^4.4.2",
+    "ts-loader": "^3.5.0",
     "typescript": "^2.9.2",
     "webpack": "^3.8.1",
     "wxapp-webpack-plugin": "^0.18.0",
     "wxml-loader": "^0.2.2"
   },
   "dependencies": {
-    "babel-runtime": "^6.23.0",
-    "es6-promise": "^4.1.0",
     "lodash": "^4.17.4"
   },
   "jest": {
